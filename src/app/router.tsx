@@ -1,11 +1,16 @@
 import { ROUTES } from "../shared/model/routes";
 import { createBrowserRouter, redirect } from "react-router-dom";
 import { App } from "./app";
+import { Providers } from "./providers";
 
 export const router = createBrowserRouter([
   {
     // концепция children routes. Все роуты будут считаться дочернимим и отрисуются в App
-    element: <App />,
+    element: (
+      <Providers>
+        <App />
+      </Providers>
+    ),
     children: [
       {
         path: ROUTES.BOARDS,
